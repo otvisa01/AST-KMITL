@@ -8,6 +8,16 @@
         <link rel="stylesheet" type="text/css" href="css/template.css" />
         <script type="text/javascript" src="js/jquery-1.8.2.min.js" ></script>
         <script type="text/javascript" src="js/bootstrap.min.js" ></script>
+        <style>
+		
+		#add_form div input{
+			
+		}
+		
+		
+		
+		
+		</style>
     </head>
 
     <body>
@@ -46,7 +56,50 @@
                   </div>
                 </div>
             	<div class="span9" id="rightpanel">
-                	<h1>เพิ่มกิจกรรมใหม่</h1>
+                	<h3>เพิ่มกิจกรรมใหม่</h3>
+                 	<hr/>   
+                    <form class="form-horizontal">
+                        <div  class="control-group">
+                        	<label class="control-label">ชื่อกิจกรรม</label>
+                        	<div class="controls">
+                            	<input type="text"></input>
+                        	</div>
+                        </div>
+                        <div  class="control-group">
+                        	<label class="control-label">สถานที่จัด</label>
+                        	<div class="controls">
+                            	<input type="text"></input>
+                        	</div>
+                        </div>
+                        <div  class="control-group">
+                        	<label class="control-label">วันเริ่มกิจกรรม</label>
+                        	<div class="controls">
+                            	<input type="date"></input>
+                        	</div>
+                        </div>
+						<div  class="control-group">
+                        	<label class="control-label">วันสิ้นสุดกิจกรรม</label>
+                        	<div class="controls">
+                            	<input type="date"></input>
+                        	</div>
+                        </div>
+						<div  class="control-group">
+                        	<label class="control-label">จัดโดย</label>
+                        	<div class="controls">
+                            	<input type="text" id="createby_input"><br>
+                                <a href="#" onClick="$('#createby_input').val('สโมสรนักศึกษา');"> + สโมสรนักศึกษา </a>   <br>
+                                <a href="#" onClick="$('#createby_input').val('คณะเทคโนโลยีสารสนเทศ');"> + คณะเทคโนโลยีสารสนเทศ </a>                        	
+                        	</div>
+                        </div>
+                        <hr/>
+                        <div  class="control-group">                      	
+                        	<div class="controls">                           	
+                           		<button type="submit" class="btn btn-primary">Save</button>  <button type="submit" class="btn">Clear</button>
+                           	</div>
+                        </div>                            
+                     </form>
+                   
+             		
             	</div>
           	</div>
         </div>        
