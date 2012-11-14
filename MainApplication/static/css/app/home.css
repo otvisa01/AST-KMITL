@@ -35,7 +35,7 @@ body {
 }
 #form_input input{
 	width:100%;
-	min-height: 30px;
+	min-height: 40px;
 	font-size: 16px;
 }
 #submit_bt{
