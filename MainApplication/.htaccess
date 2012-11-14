@@ -1,6 +1,6 @@
 Options +FollowSymLinks 
 RewriteEngine On
-RewriteBase /myservice/
+RewriteBase /AST-KMITL/MainApplication/
 
 RewriteCond %{SCRIPT_FILENAME} !-d  
 RewriteCond %{SCRIPT_FILENAME} !-f  

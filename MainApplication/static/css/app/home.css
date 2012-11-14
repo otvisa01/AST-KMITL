@@ -1,8 +1,8 @@
-/* CSS Document */
 
+/* CSS Document */
 @font-face { 
 			font-family: Supermarket; 
-			src: url(css/supermarket.ttf); 
+			src: url(supermarket.ttf); 
 } 
 body {
 	background-color:#E1E1E1;

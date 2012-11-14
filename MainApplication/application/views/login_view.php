@@ -8,7 +8,7 @@
     <body>     
         <div id="container">
         	<div id="loginbox">
-            	<div id="logo"><img src="<?php echo base_url()?>img/home/ATS_Logo.png" /></div>
+            	<div id="logo"><img src="<?php echo base_url()?>static/img/home/ATS_Logo.png" /></div>
                 <?php echo form_open('login'); ?>
               	<div id="login_form">              	
                     <div id="form_input">

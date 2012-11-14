@@ -24,7 +24,8 @@ if ( ! isset($_GET['app']) || ( isset($_GET['main']) && $_GET['main'] == TRUE ) 
 	echo file_get_contents("bootstrap.custom.css");
 	echo file_get_contents("custom.css");
 }
-else
+
+if ( isset($_GET['app']) )
 {
 	// Dynamic import
 	if ( ! isset($_GET['page']))
