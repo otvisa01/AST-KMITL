@@ -1,4 +1,4 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+﻿<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /*
 | -------------------------------------------------------------------
 | AUTO-LOADER
@@ -52,15 +52,8 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-<<<<<<< HEAD
 $autoload['libraries'] = array('database', 'datamapper');
 
-
-=======
-$autoload['libraries'] = array();
-$autoload['libraries'] = array('database', 'datamapper');
-
->>>>>>> แก้ CI เพิ่ม datamapper
 /*
 | -------------------------------------------------------------------
 |  Auto-load Helper Files
@@ -70,11 +63,7 @@ $autoload['libraries'] = array('database', 'datamapper');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-<<<<<<< HEAD
-$autoload['helper'] = array();
-=======
 $autoload['helper'] = array('url','array');
->>>>>>> แก้ CI เพิ่ม datamapper
 
 
 /*
