@@ -1,4 +1,4 @@
-<?php	if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+﻿<?php	if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
  * Data Mapper Configuration
@@ -12,9 +12,9 @@ $config['error_prefix'] = '<p>';
 $config['error_suffix'] = '</p>';
 $config['created_field'] = 'created';
 $config['updated_field'] = 'updated';
-$config['local_time'] = FALSE;
-$config['unix_timestamp'] = FALSE;
-$config['timestamp_format'] = '';
+$config['local_time'] = TRUE;
+$config['unix_timestamp'] = TRUE;
+$config['timestamp_format'] = 'Y-m-d H:i:s';
 $config['lang_file_format'] = 'model_${model}';
 $config['field_label_lang_format'] = '${model}_${field}';
 $config['auto_transaction'] = FALSE;

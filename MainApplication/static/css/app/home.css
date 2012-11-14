@@ -1,0 +1,48 @@
+
+/* CSS Document */
+@font-face { 
+			font-family: Supermarket; 
+			src: url(supermarket.ttf); 
+} 
+body {
+	background-color:#E1E1E1;
+	font-family: Supermarket;
+}
+#container{
+	margin-top:60px;
+}
+#loginbox {
+	margin: 0 auto;
+	width: 500px;
+	background-color: rgba(255,255,255,0.9);
+	padding: 25px 22px 10px 25px;
+	border-radius: 8px;
+	box-shadow: 0px -1px 5px #999999;
+}
+#loginbox > div {
+	text-align:center;			
+}
+#logo {
+	color: #09F;
+	font-size: 38px;
+	font-weight: bold;
+	text-align: center;
+}
+#form_input{
+	width: 300px;
+	margin: 0 auto;
+	padding-top: 30px;
+}
+#form_input input{
+	width:100%;
+	min-height: 40px;
+	font-size: 16px;
+}
+#submit_bt{
+	text-align:center;
+	margin-top:10px;
+}
+#submit_bt button{
+	font-size:18px;
+	padding:6px 16px;
+}

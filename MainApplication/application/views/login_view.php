@@ -2,15 +2,13 @@
 <html>
 	<head>
     	<meta charset="utf-8"/>
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>css/home.css" />
-        <script type="text/javascript" src="js/jquery-1.8.2.min.js" ></script>
-		<script type="text/javascript" src="js/bootstrap.min.js" ></script>        
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>static/css/style.php?app=home&main=true" />
+        <script type="text/javascript" src="<?php echo base_url()?>static/js/javascript.php" ></script>      
 	</head>
     <body>     
         <div id="container">
         	<div id="loginbox">
-            	<div id="logo"><img src="<?php echo base_url()?>img/home/ATS_Logo.png" /></div>
+            	<div id="logo"><img src="<?php echo base_url()?>static/img/home/ATS_Logo.png" /></div>
                 <?php echo form_open('login'); ?>
               	<div id="login_form">              	
                     <div id="form_input">
