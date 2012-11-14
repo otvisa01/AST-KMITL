@@ -3,11 +3,13 @@
 @font-face { 
 			font-family: Supermarket; 
 			src: url(supermarket.ttf); 
-} 
+}
+ 
 body {
 	background-color:#E1E1E1;
 	font-family: Supermarket;
 }
+
 #container{
 	margin-top:60px;
 }
