@@ -40,6 +40,11 @@ body {
 	min-height: 40px;
 	font-size: 16px;
 }
+#login_errormsg{
+	margin:0px auto;
+	text-align:center;
+	font-size:16px;
+}
 #submit_bt{
 	text-align:center;
 	margin-top:10px;

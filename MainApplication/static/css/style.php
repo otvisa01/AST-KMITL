@@ -13,8 +13,6 @@ function compress($buffer) {
 	return $buffer;
 } 
 
-
-
 if ( ! isset($_GET['app']) || ( isset($_GET['main']) && $_GET['main'] == TRUE ) )
 {
 	// Static Import
