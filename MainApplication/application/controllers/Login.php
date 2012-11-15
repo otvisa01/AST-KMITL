@@ -15,41 +15,30 @@ class Login extends CI_Controller {
 			//If form error OR username/password invalid
 			$this->load->view('login_view');
 			return;
-		}		
+		}
+		
 		//Form is ok
-		$u = new Student();
-		$u->username = $this->input->post('username');
-		$u->password = $this->input->post('password');		
-		if($u->login()){
-			//Login success
-			echo '<p>Welcome ' . $u->username . '!</p>';
-			echo '<p>You have successfully logged in so now we know that your name is ' . $u->first_name.' '.$u->last_name . '.</p>';
-			return;
-		}else{		
-			//username/password invalid
-			$data['error'] = $u->error->login;
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		
+		$ldap = ldap_connect("161.246.38.141");
+		if(!$ldap){
+			//Failed To connect to Faculty Server.
+			$data['error'] = "LDAP Failed To Connect: ".ldap_error($ldap);
 			$this->load->view('login_view',$data);
+		}else{		
+			if( $bind = ldap_bind($ldap, $username.'@it.kmitl.ac.th', $password) ){
+				//Login success
+				echo '<p>Welcome ' . $username . '!</p>';
+				return;
+			}else{
+				//username/password invalid
+				$data['error'] = 'Username or Password incorrect.';
+				$this->load->view('login_view',$data);
+			}		
 		}
 	}
 	
-	public function register(){
-		$s = new Student();
-		$s->username = $this->input->post('username');
-		$s->password = $this->input->post('password');
-		$s->first_name = $this->input->post('first_name');
-		$s->last_name = $this->input->post('last_name');
-		
-		if($s->save()){
-			// User object now has an ID
-            echo 'ID: ' . $s->id . '<br />';
-            echo 'Username: ' . $s->username . '<br />';
-            echo 'Password: ' . $s->password . '<br />';
-            echo 'FirstName: ' . $s->first_name . '<br />';
-            echo 'LastName: ' . $s->last_name . '<br />';
-		}else{
-            echo $s->error->string;
-		}
-	}
 }	
 
 /* End of file Login.php */
