@@ -1,0 +1,11 @@
+@charset 'UTF-8';
+
+@media (min-width: 980px) {
+	body {
+			padding-top: 35px;
+	}
+}
+
+.alert {
+	font-size: 18px;
+}
