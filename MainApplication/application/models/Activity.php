@@ -14,6 +14,6 @@ class Activity extends DataMapper {
          	)
         );
         */
-	var $has_many=array('user_has_activity');
+	var $has_many=array('user_has_activity','permission_enroll');
       
 }

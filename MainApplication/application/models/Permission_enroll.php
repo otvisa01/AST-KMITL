@@ -1,6 +1,7 @@
 
 <?php
 class Permission_enroll extends DataMapper {
+	/*
     $has_many = array(
         'user' => array(            // in the code, we will refer to this relation by using the object name 'book'
             'class' => 'user',          // This relationship is with the model class 'book'
@@ -10,6 +11,10 @@ class Permission_enroll extends DataMapper {
             'join_table' => 'user_has_permission_enroll')    // name of the join table that will link both Author and Book together
     );
 }
+*/
+
+var $has_one =array('activity');
+var $has_many = array('user_has_permission_enroll');
 
 ?>
 
