@@ -1,3 +1,4 @@
 AST System @ KMITL
 
-Hello World!!
+Hello Lam GayLam Gay Lam Gay Lam Gay Lam Gay Lam Gay Lam Gay Lam Gay Lam Gay Lam Gay Lam Gay Lam Gay
+
