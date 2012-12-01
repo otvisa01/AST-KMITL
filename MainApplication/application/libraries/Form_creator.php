@@ -27,13 +27,13 @@
 class Form_creator {
 	
 	protected $CI;
-	protected $_keys			= array();
+	protected $_keys		= array();
 	protected $_configs		= array();
-	protected $_forms 			= array();
+	protected $_forms 		= array();
 	protected $_validations	= array();
 	protected $_renders		= array();
-	protected $_labels			= array();
-	protected $_msgs			= array();
+	protected $_labels		= array();
+	protected $_msgs		= array();
 
 	/**
 	 * Constructor
@@ -44,6 +44,9 @@ class Form_creator {
 
 		// Automatically load the form helper
 		$this->CI->load->helper('form');
+
+		// Automatically load the form validation
+		$this->CI->load->library('form_validation');
 	}
 
 	// --------------------------------------------------------------------
@@ -69,27 +72,30 @@ class Form_creator {
 				
 				// Set to _configs
 				$this->_configs[$key] = $forms[$key];
+
+				// Set to _validations
+				if ( isset($forms[$key]['validation']) )
+				{
+					$this->_validations[$key] = $forms[$key]['validation'];
+				}
+				else
+				{
+					$this->_validations[$key] = '';
+				}
+				
 				
 				// Update
-				$this->_msg($key, '');
 				$this->_label($key);
+				$this->_validation($key);
+				$this->_msg($key);
 				$this->_update($key);
 			}
 		}
-		// If no
-		else
-		{
-			// Set to _forms
-			$this->_forms[$key] = $forms[$key];
-			
-			// Update
-			$this->_label($key);
-			$this->_update($key);
-		}
-		
 		
 	}
 	
+	// --------------------------------------------------------------------
+	// Setter section
 	// --------------------------------------------------------------------
 
 	/**
@@ -100,21 +106,28 @@ class Form_creator {
 		// Get form
 		$config = $this->_configs[$name];
 		
-		// Set value to : input
-		if ($config['type'] == 'input')
-		{
-			$this->_forms[$name]['value'] = $value;
-		}
 		// Set value to : dropdown
-		elseif ($config['type'] == 'dropdown')
+		if ($config['type'] == 'dropdown')
 		{
 			$this->_configs[$name]['selected'] = $value;
+		}
+		// Set value to : dropdown
+		elseif ($config['type'] == 'checkbox' || $config['type'] == 'radio')
+		{
+			$this->_configs[$name]['checked'] = $value;
+		}
+		// Set value
+		else
+		{
+			$this->_forms[$name]['value'] = $value;
 		}
 		
 		// Update render
 		$this->_update($name);
 	}
 	
+	// --------------------------------------------------------------------
+	// Getter section
 	// --------------------------------------------------------------------
 	
 	/**
@@ -137,6 +150,8 @@ class Form_creator {
 	}
 	
 	// --------------------------------------------------------------------
+	// Update section
+	// --------------------------------------------------------------------
 
 	/**
 	 * Update render
@@ -151,6 +166,31 @@ class Form_creator {
 		if ($config['type'] == 'input')
 		{
 			$render = form_input($form);
+		}
+		// Type : Hidden
+		elseif ($config['type'] == 'hidden')
+		{
+			$render = form_hidden($form);
+		}
+		// Type : Password
+		elseif ($config['type'] == 'password')
+		{
+			$render = form_password($form);
+		}
+		// Type : Upload
+		elseif ($config['type'] == 'upload')
+		{
+			$render = form_upload($form);
+		}
+		// Type : Upload
+		elseif ($config['type'] == 'textarea')
+		{
+			$render = form_textarea($form);
+		}
+		// Type : Upload
+		elseif ($config['type'] == 'textarea')
+		{
+			$render = form_textarea($form);
 		}
 		// Type : Dropdown
 		elseif ($config['type'] == 'dropdown')
@@ -172,6 +212,56 @@ class Form_creator {
 			}
 			$render = form_dropdown($name, $config['options'], $selected, $js);
 		}
+		// Type : Dropdown
+		elseif ($config['type'] == 'checkbox')
+		{
+			$checked = ( isset($config['checked']) && ! is_null($config['checked']) ) ? $config['checked'] : FALSE;
+			$name = $form['name'];
+			unset($form['name']);
+			if ( isset($form) && is_array($form) )
+			{
+				$js = '';
+				$js_key = array_keys($form);
+				$js_value = array_values($form);
+				$i = count($form);
+				
+				for ($n = 0; $n < $i; ++$n)
+				{
+					$js .= $js_key[$n].'="'.$js_value[$n].'" ';
+				}
+			}
+			$render = form_checkbox($name, $config['options'], $checked, $js);
+		}
+		// Type : Redio
+		elseif ($config['type'] == 'radio')
+		{
+			$checked = ( isset($config['checked']) && ! is_null($config['checked']) ) ? $config['checked'] : FALSE;
+			$name = $form['name'];
+			unset($form['name']);
+			if ( isset($form) && is_array($form) )
+			{
+				$js = '';
+				$js_key = array_keys($form);
+				$js_value = array_values($form);
+				$i = count($form);
+				
+				for ($n = 0; $n < $i; ++$n)
+				{
+					$js .= $js_key[$n].'="'.$js_value[$n].'" ';
+				}
+			}
+			$render = form_radio($name, $config['options'], $checked, $js);
+		}
+		// Type : Submit
+		elseif ($config['type'] == 'submit')
+		{
+			$render = form_submit($form['name'], $form['value']);
+		}
+		// Type : Submit
+		elseif ($config['type'] == 'reset')
+		{
+			$render = form_reset($form);
+		}
 		
 		// Set to _forms
 		$this->_renders[$name] = $render;
@@ -191,16 +281,43 @@ class Form_creator {
 		// Set value
 		$this->_labels[$name] = form_label( ( ( isset($config['label']) && ! is_null($config['label']) ) ? $config['label'] : '' ) , $form['name']);
 	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Update validation
+	 */
+	private function _validation($name)
+	{
+		// Get form and config
+		$form = $this->_forms[$name];
+		$validation = $this->_validations[$name];
+		$label = $this->_labels[$name];
+		
+		// Set validation
+		if ( ! is_null($validation) && ! $validation == '' )
+		{
+			$this->CI->form_validation->set_rules($form['name'], $form['name'], $validation);
+		}
+		
+	}
 	
 	// --------------------------------------------------------------------
 
 	/**
 	 * Update msg
 	 */
-	private function _msg($key, $value = '')
+	private function _msg($key)
 	{	
 		// Set value
-		$this->_msgs[$key] = $value;
+		if ($this->CI->form_validation->run() == FALSE)
+		{
+			$this->_msgs[$key] = form_error($key);
+		}
+		else
+		{
+			$this->_msgs[$key] = '';
+		}
 	}
 	
 	// --------------------------------------------------------------------
@@ -242,6 +359,7 @@ class Form_creator {
 		{
 			foreach ($this->_keys as $key)
 			{
+				$this->_validation($key);
 				$this->_render($key);
 				$this->_label($key);
 			}
