@@ -9,7 +9,7 @@
         <div id="container">
         	<div id="loginbox">
             	<div id="logo"><img src="<?php echo base_url()?>static/img/home/ATS_Logo.png" /></div>
-                <?php echo form_open('member/authentication'); ?>
+                <?php echo form_open('login/authentication'); ?>
               	<div id="login_form">   					
                     <div id="form_input">
                       	<input type="text" name="username" id="username" value="<?php echo set_value('username'); ?>" placeholder="Username" required/>
