@@ -50,6 +50,22 @@ class Form_creator {
 		$this->CI->load->library('form_validation');
 	}
 
+	/**
+	*	Resetor
+	*/
+	public function reset()
+	{
+		$this->_keys		= array();
+		$this->_configs		= array();
+		$this->_forms 		= array();
+		$this->_validations	= array();
+		$this->_validation 	= FALSE;
+		$this->_renders		= array();
+		$this->_labels		= array();
+		$this->_msgs		= array();
+	}
+
+
 	// --------------------------------------------------------------------
 
 	/**
