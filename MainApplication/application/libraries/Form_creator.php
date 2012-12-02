@@ -31,6 +31,7 @@ class Form_creator {
 	protected $_configs		= array();
 	protected $_forms 		= array();
 	protected $_validations	= array();
+	protected $_validation 	= FALSE;
 	protected $_renders		= array();
 	protected $_labels		= array();
 	protected $_msgs		= array();
@@ -147,6 +148,22 @@ class Form_creator {
 		$return['msgs'] = $this->_msgs;
 		$return['configs'] = $this->_configs;
 		return $return;
+	}
+
+	/**
+	 * Get validation
+	 */
+	public function is_validate()
+	{
+		return $this->_validation;
+	}
+
+	/**
+	 * Get validation
+	 */
+	public function is_post()
+	{
+		return $this->_post();
 	}
 	
 	// --------------------------------------------------------------------
@@ -279,7 +296,8 @@ class Form_creator {
 		$config = $this->_configs[$name];
 		
 		// Set value
-		$this->_labels[$name] = form_label( ( ( isset($config['label']) && ! is_null($config['label']) ) ? $config['label'] : '' ) , $form['name']);
+		$config['label'] = ( isset($config['label']) && ! is_null($config['label']) ) ? $config['label'] : '';
+		$this->_labels[$name] = form_label($config['label'], $form['name']);
 	}
 
 	// --------------------------------------------------------------------
@@ -292,12 +310,12 @@ class Form_creator {
 		// Get form and config
 		$form = $this->_forms[$name];
 		$validation = $this->_validations[$name];
-		$label = $this->_labels[$name];
+		$config = $this->_configs[$name];
 		
 		// Set validation
 		if ( ! is_null($validation) && ! $validation == '' )
 		{
-			$this->CI->form_validation->set_rules($form['name'], $form['name'], $validation);
+			$this->CI->form_validation->set_rules($form['name'], $config['label'], $validation);
 		}
 		
 	}
@@ -310,14 +328,7 @@ class Form_creator {
 	private function _msg($key)
 	{	
 		// Set value
-		if ($this->CI->form_validation->run() == FALSE)
-		{
-			$this->_msgs[$key] = form_error($key);
-		}
-		else
-		{
-			$this->_msgs[$key] = '';
-		}
+		$this->_msgs[$key] = form_error($key);
 	}
 	
 	// --------------------------------------------------------------------
@@ -354,11 +365,27 @@ class Form_creator {
 	 */
 	private function _update($name = NULL)
 	{
+		// Validate form
+		if ($this->CI->form_validation->run() == FALSE)
+		{
+			$this->_validation = FALSE;
+		}
+		else
+		{
+			$this->_validation = TRUE;
+		}
+
+
 		// If name null give update all
 		if ($name == NULL)
 		{
 			foreach ($this->_keys as $key)
 			{
+				if ($this->CI->form_validation->run() == FALSE)
+				{
+					$this->_msg($key);
+				}
+
 				$this->_validation($key);
 				$this->_render($key);
 				$this->_label($key);
@@ -366,6 +393,7 @@ class Form_creator {
 		}
 		else
 		{
+			$this->_validation($name);
 			$this->_render($name);
 			$this->_label($name);
 		}

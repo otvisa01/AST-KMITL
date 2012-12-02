@@ -3,6 +3,7 @@
 //	name => onClick
 $config['authentication']['username'] = array(
 				'type'		=> 'input',
+				'label'		=> 'Username',
 				'form'		=> array(
 					'name'			=> 'username',
 					'id'          	=> 'username',
@@ -13,6 +14,7 @@ $config['authentication']['username'] = array(
 
 $config['authentication']['password'] = array(
 				'type'		=> 'password',
+				'label'		=> 'Password',
 				'form'		=> array(
 					'name'       	=> 'password',
 					'id'          	=> 'password',
