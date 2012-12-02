@@ -59,6 +59,11 @@ class Member extends CI_Controller {
 		$base = array('title' => '', 'body' => $body);
 		$this->load->view('base',$base);
 
+		if ($this->form_creator->is_validate())
+		{
+			echo 'test';
+		}
+
 
 		/*
 		if($this->form_validation->run()==FALSE)
