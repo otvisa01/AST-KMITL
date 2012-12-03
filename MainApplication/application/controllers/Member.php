@@ -82,15 +82,16 @@ class Member extends CI_Controller {
 			$users = new User();
 			$users->where ('username', $form->get_value('username'));
 			$users->where ('password', $form->get_value('password'));
-			
-			if($users->count() != 1)
+			$user = $users->get();
+
+			if( ! isset($user->username) && ! isset($user->password) )
 			{
 				$data['notify'] = 'Failed to login.';
 				$error = TRUE;
 			}
 			else
 			{
-				$user = $users->get();
+				
 				set_authen($user->username, $user->password);
 				redirect('/member/profile', 'refresh');
 				return;

@@ -30,7 +30,7 @@ if ( ! function_exists('is_authen'))
 		$CI =& get_instance();
 		$user_data = $CI->session->all_userdata();
 
-		if ( isset($user_data['uid']) and isset($user_data['key']) )
+		if ( isset($user_data['uid']) && isset($user_data['key']) )
 		{
 			// Check user validate
 			$users = new User();
@@ -76,11 +76,10 @@ if ( ! function_exists('set_authen'))
 		$users = new User();
 		$users->where ('username', $username);
 		$users->where ('password', $password);
+		$user = $users->get();
 
-		if ($users->count() == 1)
+		if( isset($user->username) && isset($user->password) )
 		{
-			$user = $users->get();
-			
 			$data = array(
                    'uid'	=> $user->user_id,
                    'key'	=> $user->key
@@ -107,20 +106,21 @@ if ( ! function_exists('get_authen'))
 		$CI =& get_instance();
 		$user_data = $CI->session->all_userdata();
 
-		if ( isset($user_data['uid']) and isset($user_data['key']) )
+		if ( isset($user_data['uid']) && isset($user_data['key']) )
 		{
 			// Check user validate
 			$users = new User();
 			$users->where ('user_id', $user_data['uid']);
 			$users->where ('key', $user_data['key']);
+			$user = $users->get();
 
-			if ($users->count() != 1)
+			if( ! isset($user->username) && ! isset($user->password) )
 			{
 				return FALSE;
 			}
 			else
 			{
-				return $users->get();
+				return $user;
 			}
 
 		}
