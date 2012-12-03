@@ -9,3 +9,12 @@
 .alert {
 	font-size: 18px;
 }
+
+.form-submit{
+	text-align:center;
+	margin-top:10px;
+}
+.form-submit button{
+	font-size:18px;
+	padding:6px 16px;
+}

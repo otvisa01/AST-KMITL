@@ -34,7 +34,7 @@
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 	<script type="text/javascript">
-		var PATH = '<?php echo PATH;?>';
+		var PATH = '<?php echo base_url();?>';
 	</script>
 	<?php echo $head;?>
 	</head>

@@ -30,26 +30,13 @@ body {
 	font-weight: bold;
 	text-align: center;
 }
-#form_input{
+#login_form {
 	width: 300px;
 	margin: 0 auto;
 	padding-top: 30px;
 }
-#form_input input{
+#login_form input{
 	width:100%;
 	min-height: 40px;
 	font-size: 16px;
-}
-#login_errormsg{
-	margin:0px auto;
-	text-align:center;
-	font-size:16px;
-}
-#submit_bt{
-	text-align:center;
-	margin-top:10px;
-}
-#submit_bt button{
-	font-size:18px;
-	padding:6px 16px;
 }

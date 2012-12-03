@@ -30,6 +30,7 @@ class Form_creator {
 	protected $_keys		= array();
 	protected $_configs		= array();
 	protected $_forms 		= array();
+	protected $_values 		= array();
 	protected $_validations	= array();
 	protected $_validation 	= FALSE;
 	protected $_renders		= array();
@@ -99,7 +100,9 @@ class Form_creator {
 				{
 					$this->_validations[$key] = '';
 				}
-				
+
+				// Init _values
+				$this->_values[$key] = '';
 				
 				// Update
 				$this->_label($key);
@@ -127,16 +130,19 @@ class Form_creator {
 		if ($config['type'] == 'dropdown')
 		{
 			$this->_configs[$name]['selected'] = $value;
+			$this->_values[$name] = $value;
 		}
 		// Set value to : dropdown
 		elseif ($config['type'] == 'checkbox' || $config['type'] == 'radio')
 		{
 			$this->_configs[$name]['checked'] = $value;
+			$this->_values[$name] = $value;
 		}
 		// Set value
 		else
 		{
 			$this->_forms[$name]['value'] = $value;
+			$this->_values[$name] = $value;
 		}
 		
 		// Update render
@@ -164,6 +170,19 @@ class Form_creator {
 		$return['msgs'] = $this->_msgs;
 		$return['configs'] = $this->_configs;
 		return $return;
+	}
+
+	/**
+	 * Get value
+	 */
+	public function get_value($key)
+	{
+		if($this->_post())
+		{
+			$this->_update();
+		}
+		
+		return $this->_values[$key];
 	}
 
 	/**

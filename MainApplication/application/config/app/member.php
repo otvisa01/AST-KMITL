@@ -9,7 +9,7 @@ $config['authentication']['username'] = array(
 					'id'          	=> 'username',
 					'placeholder' 	=> 'Username'
 				),
-				'validation' => 'required|valid_email'
+				'validation' => 'required'
             );
 
 $config['authentication']['password'] = array(
