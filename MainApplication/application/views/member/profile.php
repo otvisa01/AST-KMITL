@@ -4,9 +4,9 @@
         	<img src="<?php echo base_url()?>static/img/template/ATS_Logo_2.png" width="430" height="92" alt="ระบบทรานสคริปกิจกรรม คณะเทคโนโลยีสารสนเทศ สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง" />
         </div>
         <div id="login_stat">
-        	Login as 53070077<br>
-            ศรัญ อ่อนเอื้อน<br>
-            <button class="btn btn-mini btn-primary">Logout</button>
+        	Login as <?php echo $user->username; ?><br>
+            <?php echo $user->full_name(); ?><br>
+            <a href="<?php echo base_url()?>member/logout" class="btn btn-mini btn-primary">Logout</a>
         </div>
     </div>
 <div class="row-fluid">

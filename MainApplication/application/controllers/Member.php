@@ -38,11 +38,27 @@ class Member extends CI_Controller {
 	}
 	
 	/**
+	 * logout page
+	 */
+	public function logout()
+	{
+		del_authen();
+		redirect('/member/login', 'refresh');
+		return;
+
+	}
+
+	/**
 	 * authentication page
 	 */
 	public function login()
 	{
-
+		// if logged in
+		if ( is_authen() )
+		{
+			redirect('/member/profile', 'refresh');
+			return;
+		}
 		
 		// Init Form
 		$this->form_creator->add_forms( $this->config->item('authentication') );
@@ -63,20 +79,20 @@ class Member extends CI_Controller {
 		else
 		{
 			// Check user validate
-			$user = new User();
-			$user->where ('username', $form->get_value('username'));
-			$user->where ('password', $form->get_value('password'));
+			$users = new User();
+			$users->where ('username', $form->get_value('username'));
+			$users->where ('password', $form->get_value('password'));
 			
-			if($user->count() != 1)
+			if($users->count() != 1)
 			{
 				$data['notify'] = 'Failed to login.';
 				$error = TRUE;
 			}
 			else
 			{
-				$this->load->helper('url');
+				$user = $users->get();
+				set_authen($user->username, $user->password);
 				redirect('/member/profile', 'refresh');
-
 				return;
 			}
 
@@ -121,7 +137,15 @@ class Member extends CI_Controller {
 	 */
 	public function profile()
 	{
+		// if not log in
+		if ( ! is_authen() )
+		{
+			redirect('/member/login', 'refresh');
+			return;
+		}
+
 		// Send data to view authenticate
+		$data['user'] = get_authen();
 		$data['activity'] = $this->load->view('activity', NULL, TRUE);
 		$body = $this->load->view('member/profile', $data, TRUE);
 		

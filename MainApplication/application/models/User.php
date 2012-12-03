@@ -1,19 +1,17 @@
 
 <?php
 class User extends DataMapper {
-var $has_many = array('user_has_activity','user_has_permission_enroll');
-     var $validation = array(
-        'username' => array(
-            'label' => 'Username',
-            'rules' => array('required','min_length' => 3, 'max_length' => 20),
-        ),
-        'password' => array(
-            'label' => 'Password',
-            'rules' => array('required', 'min_length' => 6),
-        )
-    );
+    var $has_many = array('user_has_activity','user_has_permission_enroll');
 
     
+
+    /**
+     * get full name
+     */
+    public function full_name()
+    {
+        return $this->first_name .' '. $this->last_name;
+    }   
 
 }
 
