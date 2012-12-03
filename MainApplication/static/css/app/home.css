@@ -6,12 +6,15 @@
 }
  
 body {
+	background-image: url('../img/debut_dark.png');
 	background-color:#E1E1E1;
 	font-family: Supermarket;
+	padding: 0px;
+	margin: 0px;
 }
 
 #container{
-	margin-top:60px;
+	margin-top:0px;
 }
 #loginbox {
 	margin: 0 auto;
@@ -39,4 +42,13 @@ body {
 	width:100%;
 	min-height: 40px;
 	font-size: 16px;
+}
+
+#wrapper{
+	margin: 0 auto;
+	width: 1200px;
+	background-color: rgba(255,255,255,0.9);
+	padding: 25px 22px 10px 25px;
+	border-radius: 8px;
+	box-shadow: 0px -1px 5px #999999;
 }
