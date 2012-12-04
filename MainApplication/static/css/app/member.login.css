@@ -1,17 +1,5 @@
 
 /* CSS Document */
-@font-face { 
-			font-family: Supermarket; 
-			src: url(supermarket.ttf); 
-}
- 
-body {
-	background-image: url('../img/debut_dark.png');
-	background-color:#E1E1E1;
-	font-family: Supermarket;
-	padding: 0px;
-	margin: 0px;
-}
 
 #container{
 	margin-top:0px;

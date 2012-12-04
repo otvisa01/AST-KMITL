@@ -33,7 +33,9 @@ class Member extends CI_Controller {
 		$body = $this->load->view('member/login', $data, TRUE);
 		
 		// Send to base view
-		$base = array('title' => '', 'body' => $body);
+		$base['title'] = '';
+		$base['body'] = $body;
+		$base['head'] = get_style('member','login');
 		$this->load->view('base',$base);
 	}
 	
@@ -127,7 +129,9 @@ class Member extends CI_Controller {
 			$body = $this->load->view('member/login', $data, TRUE);
 			
 			// Send to base view
-			$base = array('title' => '', 'body' => $body);
+			$base['title'] = '';
+			$base['body'] = $body;
+			$base['head'] = get_style('member','login');
 			$this->load->view('base',$base);
 		}
 

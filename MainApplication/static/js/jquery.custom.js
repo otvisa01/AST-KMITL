@@ -25,4 +25,5 @@ $(document).ready(function() {
 			.attr('disabled','disabled')
 			.html('Please wait...');
 	});
+
 });

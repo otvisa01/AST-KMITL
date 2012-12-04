@@ -1,9 +1,9 @@
 <?php
 	
 	// Check title define
-	if ( ! isset($title))
+	if ( ! isset($title) || is_null($title) || $title == '' )
 	{
-		$tiitle = 'IT Transcript System';	
+		$title = 'IT Transcript System';	
 	}
 	else
 	{
@@ -23,20 +23,24 @@
 	}
 	
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-	<meta charset="utf-8">
-	<title><?php echo $title;?></title>
-	<link href="<?php echo base_url()?>static/css/style.php?app=home&main=true" rel="stylesheet">
-	<script src="<?php echo base_url()?>static/js/javascript.php"></script>
-	<!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-	<script type="text/javascript">
-		var PATH = '<?php echo base_url();?>';
-	</script>
-	<?php echo $head;?>
+		<meta charset="utf-8">
+		<title><?php echo $title;?></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="IT Transcript System">
+        <meta name="author" content="IT Transcript Developer Team">
+		<?php echo get_style(); ?>
+		<?php echo get_js(); ?>
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<script type="text/javascript">
+			var PATH = '<?php echo base_url();?>';
+		</script>
+		<?php echo $head;?>
 	</head>
 	<body>
 		<?php echo $body;?>

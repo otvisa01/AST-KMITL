@@ -1,7 +1,7 @@
 
 <div id="container">
     <div id="loginbox">
-        <div id="logo"><img src="<?php echo base_url()?>static/img/home/ATS_Logo.png" /></div>
+        <div id="logo"><img src="<?php echo base_url()?>static/img/home/ATS_Logo.png"></div>
         <form action="" method="post" accept-charset="utf-8"> 
             <div id="login_form">
                 <div class="alert alert-error hide"><?php echo $notify; ?></div>
@@ -27,4 +27,4 @@
     </div>            
 </div>
 
-<script src="<?php echo base_url()?>static/js/javascript.php?app=member&page=login"></script>
+<?php echo get_js('member','login'); ?>

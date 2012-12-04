@@ -16,7 +16,6 @@ function compress($buffer) {
 if ( ! isset($_GET['app']) || ( isset($_GET['main']) && $_GET['main'] == TRUE ) )
 {
 	// Static Import
-	//echo file_get_contents("normalize.css");
 	echo file_get_contents("bootstrap.css");
 	echo file_get_contents("bootstrap-responsive.css");
 	echo file_get_contents("bootstrap.custom.css");
@@ -35,4 +34,5 @@ if ( isset($_GET['app']) )
 		echo @file_get_contents('app/' . $_GET['app'] . '.' . $_GET['page'] . '.css');
 	}
 }
+
 ?>
