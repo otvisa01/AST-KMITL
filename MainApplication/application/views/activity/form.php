@@ -55,7 +55,7 @@
         <hr/>
         <div  class="control-group">                      	
         	<div class="controls">                           	
-           		<button type="submit" class="btn btn-primary">Save</button>  <button type="submit" class="btn">Clear</button>
+           		<button type="submit" class="btn btn-primary">Save</button>
            	</div>
         </div>                            
       </form>
