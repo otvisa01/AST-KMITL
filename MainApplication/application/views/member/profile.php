@@ -39,7 +39,7 @@
       ?>
         <blockquote>
           <p>รหัสกิจกรรม : XXXXXX  ชื่อกิจกรรม : <?php echo $activity->name; ?></p>
-          <small>จัดเมื่อ : <?php echo $activity->start_time; ?> เวลาทำกิจกรรม(ชม.) : 30 ชั่วโมง</small>
+          <small>จัดเมื่อ : <?php echo $activity->start_time; ?> เวลาทำกิจกรรม(ชม.) : <?php echo $activity->get_time_to_do() ?></small>
         </blockquote>
       <?php
         }
