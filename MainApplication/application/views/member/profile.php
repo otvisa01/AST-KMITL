@@ -10,24 +10,7 @@
   </div>
   <div class="row-fluid">
     <div class="span3 well" id="leftpanel">
-      <ul class="nav nav-list">
-        <li class="nav-header">Sidebar</li>
-        <li class="active"><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li class="nav-header">Sidebar</li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li class="nav-header">Sidebar</li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-      </ul>
+      <?php get_sidebarmenu('view_profile'); ?>
     </div>
     <div class="span9 well" id="rightpanel">
      	<h3>กิจกรรมที่ทำล่าสุด</h3>

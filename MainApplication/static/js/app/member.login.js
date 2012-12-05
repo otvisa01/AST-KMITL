@@ -9,10 +9,10 @@ $(document).ready(function() {
 	$('.alert:not(:empty)').show();
 
 	$('#username').focus();
-	$('#loginbox').css('margin-top', ($(window).height()/2 - $('#loginbox').outerHeight()/2) - 20 );
+	$('#loginbox').css('margin-top', ($(window).height()/2 - $('#loginbox').outerHeight()/2) - 35 );
 
 });
 
 $(window).resize(function(){
-	$('#loginbox').css('margin-top', ($(window).height()/2 - $('#loginbox').outerHeight()/2) - 20 );
+	$('#loginbox').css('margin-top', ($(window).height()/2 - $('#loginbox').outerHeight()/2) - 35 );
 });
