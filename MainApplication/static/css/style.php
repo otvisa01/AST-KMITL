@@ -1,6 +1,6 @@
 ﻿<?php
 
-header("Content-type: text/css; charset=TIS-620"); 
+header("Content-type: text/css; charset=UTF-8"); 
 header("Cache-Control: must-revalidate");
 $offset = 60 * 60 * 24 * 3;
 $ExpStr = "Expires: " . gmdate("D, d M Y H:i:s", time() + $offset) . " GMT";

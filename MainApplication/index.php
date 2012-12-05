@@ -174,6 +174,8 @@ if (defined('ENVIRONMENT'))
 
 	// Name of the "system folder"
 	define('SYSDIR', trim(strrchr(trim(BASEPATH, '/'), '/'), '/'));
+	
+	define('PATH', '/myservice');
 
 
 	// The path to the "application" folder
@@ -196,6 +198,7 @@ if (defined('ENVIRONMENT'))
  * --------------------------------------------------------------------
  */
 require_once APPPATH.'third_party/datamapper/bootstrap.php';
+
 /*
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE

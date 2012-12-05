@@ -34,6 +34,26 @@ if ( ! function_exists('get_sidebarmenu'))
 	}
 }
 
+// --------------------------------------------------------------------
+
+/**
+ * get_header
+ *
+ * @access	public
+ * @param	string
+ * @return	str
+ */
+if ( ! function_exists('get_header'))
+{	
+	function get_header()
+	{
+		$data = array();
+		$CI =& get_instance();
+		$CI->load->view('header', $data, FALSE);
+	}
+}
+
+
 
 /* End of file view_helper.php */
 /* Location: ./application/helpers/view_helper.php */

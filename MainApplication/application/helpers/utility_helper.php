@@ -29,7 +29,7 @@ if ( ! function_exists('get_style'))
 	{
 		if ( $app && $page )
 		{
-			return '<link href="'. base_url() .'static/css/style.php?app='. $app .'&page='. $page .'" rel="stylesheet">';	
+			return '<link href="'. base_url() .'static/css/style.php?app='. $app .'&amp;page='. $page .'" rel="stylesheet">';	
 		}
 		elseif ( $app )
 		{
