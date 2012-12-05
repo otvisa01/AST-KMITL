@@ -1,5 +1,5 @@
 
-<div id="container">
+<div id="wrapper">
     <div id="loginbox">
         <div id="logo"><img src="<?php echo base_url()?>static/img/home/ATS_Logo.png"></div>
         <form action="" method="post" accept-charset="utf-8"> 

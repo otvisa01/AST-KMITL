@@ -1,10 +1,5 @@
 @charset 'UTF-8';
 
-@media (min-width: 980px) {
-	body {
-			padding-top: 35px;
-	}
-}
 
 @font-face { 
 			font-family: Supermarket; 
@@ -27,7 +22,13 @@ body {
 	text-align:center;
 	margin-top:10px;
 }
+
 .form-submit button{
 	font-size:18px;
 	padding:6px 16px;
+}
+
+#wrapper{
+	margin: 0 auto;
+	width: 1200px;
 }

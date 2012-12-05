@@ -34,7 +34,7 @@ if ( ! function_exists('is_authen'))
 		{
 			// Check user validate
 			$users = new User();
-			$users->where ('user_id', $user_data['uid']);
+			$users->where ('id', $user_data['uid']);
 			$users->where ('key', $user_data['key']);
 
 			if ($users->count() != 1)
@@ -81,7 +81,7 @@ if ( ! function_exists('set_authen'))
 		if( isset($user->username) && isset($user->password) )
 		{
 			$data = array(
-                   'uid'	=> $user->user_id,
+                   'uid'	=> $user->id,
                    'key'	=> $user->key
                );
 			$CI->session->set_userdata($data);
@@ -110,7 +110,7 @@ if ( ! function_exists('get_authen'))
 		{
 			// Check user validate
 			$users = new User();
-			$users->where ('user_id', $user_data['uid']);
+			$users->where ('id', $user_data['uid']);
 			$users->where ('key', $user_data['key']);
 			$user = $users->get();
 

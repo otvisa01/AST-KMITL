@@ -45,7 +45,7 @@ class Member extends CI_Controller {
 	public function logout()
 	{
 		del_authen();
-		redirect('/member/login', 'refresh');
+		redirect('/login', 'refresh');
 		return;
 
 	}
@@ -58,7 +58,7 @@ class Member extends CI_Controller {
 		// if logged in
 		if ( is_authen() )
 		{
-			redirect('/member/profile', 'refresh');
+			redirect('/profile', 'refresh');
 			return;
 		}
 		
@@ -95,7 +95,7 @@ class Member extends CI_Controller {
 			{
 				
 				set_authen($user->username, $user->password);
-				redirect('/member/profile', 'refresh');
+				redirect('/profile', 'refresh');
 				return;
 			}
 
@@ -145,7 +145,7 @@ class Member extends CI_Controller {
 		// if not log in
 		if ( ! is_authen() )
 		{
-			redirect('/member/login', 'refresh');
+			redirect('/login', 'refresh');
 			return;
 		}
 
@@ -155,7 +155,9 @@ class Member extends CI_Controller {
 		$body = $this->load->view('member/profile', $data, TRUE);
 		
 		// Send to base view
-		$base = array('title' => '', 'body' => $body);
+		$base['title'] = '';
+		$base['body'] = $body;
+		$base['head'] = get_style('member','profile');
 		$this->load->view('base',$base);
 
 	}

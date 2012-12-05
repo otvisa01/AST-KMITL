@@ -1,9 +1,5 @@
 
 /* CSS Document */
-
-#container{
-	margin-top:0px;
-}
 #loginbox {
 	margin: 0 auto;
 	width: 500px;
@@ -12,31 +8,27 @@
 	border-radius: 8px;
 	box-shadow: 0px -1px 5px #999999;
 }
+
 #loginbox > div {
 	text-align:center;			
 }
+
 #logo {
 	color: #09F;
 	font-size: 38px;
 	font-weight: bold;
 	text-align: center;
 }
+
 #login_form {
 	width: 300px;
 	margin: 0 auto;
 	padding-top: 30px;
 }
+
 #login_form input{
 	width:100%;
 	min-height: 40px;
 	font-size: 16px;
 }
 
-#wrapper{
-	margin: 0 auto;
-	width: 1200px;
-	background-color: rgba(255,255,255,0.9);
-	padding: 25px 22px 10px 25px;
-	border-radius: 8px;
-	box-shadow: 0px -1px 5px #999999;
-}

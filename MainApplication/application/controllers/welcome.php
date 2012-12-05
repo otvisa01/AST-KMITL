@@ -4,8 +4,18 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->helper('url');
-		redirect('/member/login', 'refresh');
+		// if logged in
+		if ( is_authen() )
+		{
+			redirect('/profile', 'refresh');
+			return;
+		}
+		else
+		{
+			redirect('/login', 'refresh');
+			return;
+		}
+		
 	}
 }
 
