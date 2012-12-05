@@ -49,7 +49,7 @@ if ( ! function_exists('get_header'))
 	{
 		$data = array();
 		$CI =& get_instance();
-		$CI->load->view('header', $data, FALSE);
+		return $CI->load->view('header', $data, TRUE)."\r\n";
 	}
 }
 

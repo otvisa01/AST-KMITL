@@ -35,6 +35,7 @@ class Form_creator {
 	protected $_validation 	= FALSE;
 	protected $_renders		= array();
 	protected $_labels		= array();
+	protected $_labels_text	= array();
 	protected $_msgs		= array();
 
 	/**
@@ -164,6 +165,7 @@ class Form_creator {
 		}
 		
 		$return['labels'] = $this->_labels;
+		$return['labels_text'] = $this->_labels_text;
 		$return['renders'] = $this->_renders;
 		$return['forms'] = $this->_forms;
 		$return['validations'] = $this->_validations;
@@ -234,12 +236,7 @@ class Form_creator {
 		{
 			$render = form_upload($form);
 		}
-		// Type : Upload
-		elseif ($config['type'] == 'textarea')
-		{
-			$render = form_textarea($form);
-		}
-		// Type : Upload
+		// Type : Textarea
 		elseif ($config['type'] == 'textarea')
 		{
 			$render = form_textarea($form);
@@ -332,6 +329,7 @@ class Form_creator {
 		
 		// Set value
 		$config['label'] = ( isset($config['label']) && ! is_null($config['label']) ) ? $config['label'] : '';
+		$this->_labels_text[$name] = $config['label'];
 		$this->_labels[$name] = form_label($config['label'], $form['name']);
 	}
 

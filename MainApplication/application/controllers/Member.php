@@ -47,7 +47,6 @@ class Member extends CI_Controller {
 		del_authen();
 		redirect('/login', 'refresh');
 		return;
-
 	}
 
 	/**

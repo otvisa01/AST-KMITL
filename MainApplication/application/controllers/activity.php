@@ -35,19 +35,28 @@ class Activity extends CI_Controller {
 			return;
 		}
 
-		$this->form_creator->add_forms( $this->config->item('activity') );
 		$form = $this->form_creator;
-
-		// Send data to view authenticate
-		$data = array();
-		$body = $this->load->view('activity/form', $data, TRUE);
+		$form->add_forms( $this->config->item('add_activity') );
 		
-		// Send to base view
-		$base['title'] = '';
-		$base['body'] = $body;
-		//$base['head'] = get_style('member','profile');
-		$this->load->view('base',$base);
+		if (! $form->is_validate())
+		{
+			// Send data to view authenticate
+			$data = array();
+			$data['form'] = $form->get_forms();
+			$body = $this->load->view('activity/form', $data, TRUE);
+			
+			// Send to base view
+			$base['title'] = '';
+			$base['body'] = $body;
+			$this->load->view('base',$base);
+		}
+		else
+		{
+			redirect('/profile', 'refresh');
+			return;
+		}
 
+		
 	}
 	
 }	
