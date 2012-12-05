@@ -1,6 +1,8 @@
 
 <?php
+
 class User_has_activity extends DataMapper {
+	
 	var $table = "user_has_activities";
 	var $has_one = array(
 		'user',
