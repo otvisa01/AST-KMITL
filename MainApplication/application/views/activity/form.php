@@ -1,10 +1,10 @@
 <div id="wrapper">
 <?php echo get_header(); ?>
   <div class="row-fluid">
-    <div class="span3 well" id="leftpanel">
-    	<?php get_sidebarmenu('add_activity'); ?>
-    </div>
-    <div class="span9 well" id="rightpanel">
+    <aside  id="sidebar" class="span3">
+    	<?php echo get_sidebarmenu('add_activity'); ?>
+    </aside>
+    <div id="content" class="span9">
     	<h3>เพิ่มกิจกรรมใหม่</h3>
      	<hr/>   
       <form action="" method="post" accept-charset="utf-8" class="form-horizontal">

@@ -30,7 +30,7 @@ if ( ! function_exists('get_sidebarmenu'))
 		$data['current'] = $current;
 		$CI =& get_instance();
 
-		$CI->load->view('sidebarmenu', $data, FALSE);
+		return $CI->load->view('sidebarmenu', $data, TRUE)."\r\n";
 	}
 }
 

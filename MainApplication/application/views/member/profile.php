@@ -1,11 +1,12 @@
 <div id="wrapper">
 <?php echo get_header(); ?>
 	<div class="row-fluid">
-		<div class="span3 well" id="leftpanel">
-		<?php get_sidebarmenu('view_profile'); ?>
-		</div>
-		<div class="span9 well" id="rightpanel">
+		<aside id="sidebar" class="span3">
+		<?php echo get_sidebarmenu('view_profile'); ?>
+		</aside>
+		<section id="content" class="span9">
 			<h3>กิจกรรมที่ทำล่าสุด</h3>
+			<hr>
 			<div class="activity_table_container" id="student_table_container">
 			<?php
 				foreach ($user->get_activities() as $list)
@@ -20,6 +21,6 @@
 				}
 			?>
 			</div>
-		</div>
+		</section>
 	</div>
 </div>
