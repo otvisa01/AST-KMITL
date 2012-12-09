@@ -13,9 +13,20 @@
 				{
 					$activity = $list->activity->get();
 			?>
-			<blockquote>
-				<p>รหัสกิจกรรม : XXXXXX  ชื่อกิจกรรม : <?php echo $activity->name; ?></p>
-				<small>จัดเมื่อ : <?php echo $activity->start_time; ?> เวลาทำกิจกรรม(ชม.) : <?php echo $activity->get_time_to_do() ?></small>
+			<blockquote class="activity-item">
+				<p>
+					<div class="activity-item-title pull-left">
+					กิจกรรม : <?php echo $activity->name; ?>
+					</div>
+					<div class="activity-item-action pull-right">
+						<a href="<?php echo base_url()?>activity/enrol/<?php echo $activity->id; ?>" class="btn btn-primary"><i class="icon-check"></i> Enrol</a>
+						<a href="<?php echo base_url()?>activity/view/<?php echo $activity->id; ?>" class="btn btn-primary"><i class="icon-tasks"></i> View</a>
+						<a href="<?php echo base_url()?>activity/edit/<?php echo $activity->id; ?>" class="btn btn-primary"><i class="icon-pencil"></i> Edit</a>
+					</div>
+				</p>
+				<br><small>
+					จัดเมื่อ : <?php echo $activity->start_time; ?> เวลาทำกิจกรรม(ชม.) : <?php echo $activity->get_time_to_do() ?>
+				</small>
 			</blockquote>
 			<?php
 				}
