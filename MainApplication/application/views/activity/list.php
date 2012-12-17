@@ -19,7 +19,7 @@
 					</div>
 					<div class="activity-item-action pull-right">
 						<a href="<?php echo base_url()?>activity/enrol/<?php echo $activity->id; ?>" class="btn btn-primary"><i class="icon-check"></i> Enrol</a>
-						<a href="<?php echo base_url()?>activity/view/<?php echo $activity->id; ?>" class="btn btn-primary"><i class="icon-tasks"></i> View</a>
+						<a href="<?php echo base_url()?>activity/<?php echo $activity->id; ?>" class="btn btn-primary"><i class="icon-tasks"></i> View</a>
 						<a href="<?php echo base_url()?>activity/edit/<?php echo $activity->id; ?>" class="btn btn-primary"><i class="icon-pencil"></i> Edit</a>
 					</div>
 				</p>

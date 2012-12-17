@@ -106,3 +106,27 @@ h3 {
 .activity-item-title{
 	font-size: 18px;
 }
+
+.left_label{
+	float: left;
+	width: 110px;
+	font-weight: 800;
+}
+
+.right_label{
+	float: left;
+	margin-left: 30px;
+}
+
+.detail_container{
+	padding-top: 25px;
+}
+
+.activity_detail_container{
+	margin: 0px auto auto 100px;
+}
+
+#button_zone{
+	padding-top: 30px;
+	padding-left: 100px;
+}

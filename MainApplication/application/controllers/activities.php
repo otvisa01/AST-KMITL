@@ -89,6 +89,37 @@ class Activities extends CI_Controller {
 
 		
 	}
+
+	/**
+	* view page
+	*/
+	public function view($act_id)
+	{
+		// if not log in
+		if ( ! is_authen() )
+		{
+			redirect('/login', 'refresh');
+			return;
+		}
+		
+		// Get activity
+		$activities = New Activity();
+		$activities->get();
+
+		// Send data to view authenticate and id of activity for show detail
+		$data = array();
+		$data['activities'] = $activities;
+		$data['activity_id'] = $act_id;
+		$body = $this->load->view('activity/view', $data, TRUE);
+		
+		// Send to base view
+		$base = array();
+		$base['title'] = '';
+		$base['body'] = $body;
+		$this->load->view('base',$base);
+
+		
+	}
 	
 }	
 
