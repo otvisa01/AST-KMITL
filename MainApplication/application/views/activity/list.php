@@ -2,16 +2,15 @@
 <?php echo get_header(); ?>
 	<div class="row-fluid">
 		<aside id="sidebar" class="span3">
-		<?php echo get_sidebarmenu('view_profile'); ?>
+		<?php echo get_sidebarmenu('list_activity'); ?>
 		</aside>
 		<section id="content" class="span9">
 			<h3>กิจกรรมที่ทำล่าสุด</h3>
 			<hr>
 			<div class="activity_table_container" id="student_table_container">
 			<?php
-				foreach ($user->get_activities() as $list)
+				foreach ($activities as $activity)
 				{
-					$activity = $list->activity->get();
 			?>
 			<blockquote class="activity-item">
 				<p>
@@ -19,8 +18,9 @@
 					กิจกรรม : <?php echo $activity->name; ?>
 					</div>
 					<div class="activity-item-action pull-right">
-						<a href="<?php echo base_url()?>activity/enrol/<?php echo $activity->id; ?>" class="btn btn-primary"><i class="icon-question-sign"></i> Questionnaire</a>
+						<a href="<?php echo base_url()?>activity/enrol/<?php echo $activity->id; ?>" class="btn btn-primary"><i class="icon-check"></i> Enrol</a>
 						<a href="<?php echo base_url()?>activity/view/<?php echo $activity->id; ?>" class="btn btn-primary"><i class="icon-tasks"></i> View</a>
+						<a href="<?php echo base_url()?>activity/edit/<?php echo $activity->id; ?>" class="btn btn-primary"><i class="icon-pencil"></i> Edit</a>
 					</div>
 				</p>
 				<br><small>

@@ -1,7 +1,7 @@
 <?php 
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Activity extends CI_Controller {
+class Activities extends CI_Controller {
 
 	/**
 	 * Constructor
@@ -57,6 +57,46 @@ class Activity extends CI_Controller {
 		}
 
 		
+	}
+
+
+	/**
+	 * list page
+	 */
+	public function lists()
+	{
+		// if not log in
+		if ( ! is_authen() )
+		{
+			redirect('/login', 'refresh');
+			return;
+		}
+		
+		// Get activity
+		$activities = New Activity();
+		$activities->get();
+
+		// Send data to view authenticate
+		$data = array();
+		$data['activities'] = $activities;
+		$body = $this->load->view('activity/list', $data, TRUE);
+		
+		// Send to base view
+		$base = array();
+		$base['title'] = '';
+		$base['body'] = $body;
+		$this->load->view('base',$base);
+
+		
+	}
+
+	/**
+	 * view page
+	 */
+	public function view($activity_id)
+	{
+		echo $activity_id;
+
 	}
 	
 }	

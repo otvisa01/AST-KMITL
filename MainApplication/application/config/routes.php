@@ -40,10 +40,15 @@
 
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
-$route['profile'] = 'member/profile';
-$route['login'] = 'member/login';
-$route['logout'] = 'member/logout';
 
+// Member
+$route['profile'] = 'members/profile';
+$route['login'] = 'members/login';
+$route['logout'] = 'members/logout';
+
+// Activity
+$route['activities/list'] = 'activities/lists';
+$route['activity/(:num)'] = 'activities/view/$1';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
