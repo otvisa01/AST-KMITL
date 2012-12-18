@@ -16,7 +16,7 @@
 			?>
 						<div class="detail_container">
 							<div class="left_label">
-								ชื่อกิจกรรม : 
+								ชื่อกิจกรรม  
 							</div>
 							<div class="right_label">
 								<?php echo $activity->name; ?>
@@ -24,7 +24,7 @@
 						</div>
 						<div class="detail_container">
 							<div class="left_label">
-								คำอธิบายกิจกรรม :
+								คำอธิบายกิจกรรม 
 							</div> 
 							<div class="right_label">
 								<?php echo $activity->description; ?>
@@ -32,7 +32,7 @@
 						</div>
 						<div class="detail_container">
 							<div class="left_label">
-								ระยะเวลา :
+								ระยะเวลา 
 							</div> 
 							<div class="right_label">
 								<?php echo $activity->start_time; ?>

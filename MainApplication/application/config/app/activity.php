@@ -6,29 +6,29 @@ $config['add_activity']['name'] = array(
 				'form'		=> array(
 					'name'			=> 'name',
 					'id'          	=> 'name',
-					'placeholder' 	=> 'Name'
+					'placeholder' 	=> 'ชื่อกิจกรรม/หัวข้อกิจกรรม'
 				),
 				'validation' => 'required'
             );
 
 $config['add_activity']['location'] = array(
 				'type'		=> 'input',
-				'label'		=> 'Location',
+				'label'		=> 'สถานที่จัดกิจกรรม',
 				'form'		=> array(
 					'name'       	=> 'location',
 					'id'          	=> 'location',
-					'placeholder' 	=> 'Location'
+					'placeholder' 	=> 'จัดที่ไหน'
 				),
 				'validation' => 'required'
             );
 
 $config['add_activity']['description'] = array(
 				'type'		=> 'textarea',
-				'label'		=> 'Description',
+				'label'		=> 'คำอธิบายกิจกรรม',
 				'form'		=> array(
 					'name'       	=> 'description',
 					'id'          	=> 'description',
-					'placeholder' 	=> 'Description',
+					'placeholder' 	=> 'อธิบายกิจกรรมพอสังเขป',
 					'rows'			=> 5,
 					'cols'			=> 10
 				),
@@ -37,7 +37,7 @@ $config['add_activity']['description'] = array(
 
 $config['add_activity']['time_start'] = array(
 				'type'		=> 'input',
-				'label'		=> 'Time start',
+				'label'		=> 'เวลาเริ่มทำกิจกรรม',
 				'form'		=> array(
 					'name'       	=> 'time_start',
 					'id'          	=> 'time_start',
@@ -49,7 +49,7 @@ $config['add_activity']['time_start'] = array(
 
 $config['add_activity']['time_end'] = array(
 				'type'		=> 'input',
-				'label'		=> 'Time end',
+				'label'		=> 'เวลาสิ้นสุดกิจกรรม',
 				'form'		=> array(
 					'name'       	=> 'time_end',
 					'id'          	=> 'time_end',
@@ -61,11 +61,11 @@ $config['add_activity']['time_end'] = array(
 
 $config['add_activity']['organized_by'] = array(
 				'type'		=> 'input',
-				'label'		=> 'Organized by',
+				'label'		=> 'จัดโดย',
 				'form'		=> array(
 					'name'       	=> 'organized_by',
 					'id'          	=> 'organized_by',
-					'placeholder' 	=> 'Organized by',
+					'placeholder' 	=> 'eg. ชุมนุมกีฬา',
 					'class' 		=>  'datetimepicker'
 				),
 				'validation' => 'required'
