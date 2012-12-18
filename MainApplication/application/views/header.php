@@ -5,6 +5,6 @@
 	</div>
 	<div id="login_stat" class="pull-right">
 		Login as  <?php echo $user->full_name(); ?> (<?php echo $user->username; ?>)<br>
-		<a href="<?php echo base_url()?>member/logout" class="btn btn-mini btn-primary">Logout</a>
+		<a href="<?php echo base_url()?>logout" class="btn btn-mini btn-primary">Logout</a>
 	</div>
 </header>
