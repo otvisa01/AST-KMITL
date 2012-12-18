@@ -40,8 +40,9 @@
         	<label class="control-label"><?php echo $form['labels_text']['organized_by']; ?></label>
           <div class="controls">
               <?php echo $form['renders']['organized_by']; ?>
-              <br><a href="#" onClick="$('#organized_by').val('สโมสรนักศึกษา');"> + สโมสรนักศึกษา </a>
-              <br><a href="#" onClick="$('#organized_by').val('คณะเทคโนโลยีสารสนเทศ');"> + คณะเทคโนโลยีสารสนเทศ </a>   
+              <br><a href="#" onClick="$('#organized_by').val('คณะเทคโนโลยีสารสนเทศ');"> + คณะเทคโนโลยีสารสนเทศ </a>
+              <br><a href="#" onClick="$('#organized_by').val('สถาบันเทคโนโลยีพระจอเกล้าเฯลาดกระบัง');"> + สถาบันเทคโนโลยีพระจอเกล้าฯลาดกระบัง </a>
+              <br><a href="#" onClick="$('#organized_by').val('สโมสรนักศึกษาคณะเทคโนโลยีสารสนเทศ');"> + สโมสรนักศึกษาคณะเทคโนโลยีสารสนเทศ </a>    
               <br><span class="help-inline"><?php echo $form['msgs']['organized_by']; ?></span>
           </div>
         </div>

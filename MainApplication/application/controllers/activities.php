@@ -52,7 +52,9 @@ class Activities extends CI_Controller {
 		}
 		else
 		{
-			redirect('/profile', 'refresh');
+			$activity = New Activity();
+			echo $form->get_value('name');
+			//redirect('/profile', 'refresh');
 			return;
 		}
 
