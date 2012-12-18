@@ -12,6 +12,8 @@ class Activities extends CI_Controller {
 		parent::__construct();
 		$this->load->config('app/activity');
 		$this->load->library('form_creator');
+		$this->load->helper('time');
+		$this->load->helper('date');
 
 	}
 
@@ -37,7 +39,7 @@ class Activities extends CI_Controller {
 
 		$form = $this->form_creator;
 		$form->add_forms( $this->config->item('add_activity') );
-		
+
 		if (! $form->is_validate())
 		{
 			// Send data to view authenticate
@@ -53,7 +55,25 @@ class Activities extends CI_Controller {
 		else
 		{
 			$activity = New Activity();
-			echo $form->get_value('name');
+			$activity->name 		= $form->get_value('name');
+			$activity->location 	= $form->get_value('location');
+			$activity->start_time 	= $form->get_value('start_time');
+			$activity->end_time 	= $form->get_value('end_time');
+			$activity->organize_by	= $form->get_value('organized_by');
+			$activity->description 	= $form->get_value('description');
+			$activity->updated 		= date('Y-m-d H:i:s');
+			$activity->created 		= date('Y-m-d H:i:s');
+
+
+
+
+			if( to_timestamp($form->get_value('time_start')) > to_timestamp($form->get_value('time_end')) )
+			{
+
+
+			}else{
+				$activity->save();
+			}
 			//redirect('/profile', 'refresh');
 			return;
 		}

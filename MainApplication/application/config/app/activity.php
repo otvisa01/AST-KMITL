@@ -35,7 +35,7 @@ $config['add_activity']['description'] = array(
 				'validation' => 'required'
             );
 
-$config['add_activity']['time_start'] = array(
+$config['add_activity']['start_time'] = array(
 				'type'		=> 'input',
 				'label'		=> 'เวลาเริ่มทำกิจกรรม',
 				'form'		=> array(
@@ -47,7 +47,7 @@ $config['add_activity']['time_start'] = array(
 				'validation' => 'required'
             );
 
-$config['add_activity']['time_end'] = array(
+$config['add_activity']['end_time'] = array(
 				'type'		=> 'input',
 				'label'		=> 'เวลาสิ้นสุดกิจกรรม',
 				'form'		=> array(

@@ -23,17 +23,17 @@
           </div>
         </div>
         <div  class="control-group">
-        	<label class="control-label"><?php echo $form['labels_text']['time_start']; ?></label>
+        	<label class="control-label"><?php echo $form['labels_text']['start_time']; ?></label>
         	<div class="controls">
-            	<?php echo $form['renders']['time_start']; ?>
-              <br><span class="help-inline"><?php echo $form['msgs']['time_start']; ?></span>
+            	<?php echo $form['renders']['start_time']; ?>
+              <br><span class="help-inline"><?php echo $form['msgs']['start_time']; ?></span>
         	</div>
         </div>
         <div  class="control-group">
-          <label class="control-label"><?php echo $form['labels_text']['time_end']; ?></label>
+          <label class="control-label"><?php echo $form['labels_text']['end_time']; ?></label>
           <div class="controls">
-              <?php echo $form['renders']['time_end']; ?>
-              <br><span class="help-inline"><?php echo $form['msgs']['time_end']; ?></span>
+              <?php echo $form['renders']['end_time']; ?>
+              <br><span class="help-inline"><?php echo $form['msgs']['end_time']; ?></span>
           </div>
         </div>
         <div  class="control-group">
