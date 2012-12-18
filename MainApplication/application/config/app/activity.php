@@ -66,7 +66,6 @@ $config['add_activity']['organized_by'] = array(
 					'name'       	=> 'organized_by',
 					'id'          	=> 'organized_by',
 					'placeholder' 	=> 'eg. ชุมนุมกีฬา',
-					'class' 		=>  'datetimepicker'
 				),
 				'validation' => 'required'
             );
