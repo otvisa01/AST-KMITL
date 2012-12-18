@@ -24,7 +24,10 @@
 					</div>
 				</p>
 				<br><small>
-					จัดเมื่อ : <?php echo $activity->start_time; ?> เวลาทำกิจกรรม(ชม.) : <?php echo $activity->get_time_to_do() ?>
+					จัดเมื่อ : <?php echo $activity->start_time; ?>
+				</small>
+				<small>
+					เวลาที่ใช้ในกิจกรรม : <?php echo $activity->get_time_to_do() ?>
 				</small>
 			</blockquote>
 			<?php

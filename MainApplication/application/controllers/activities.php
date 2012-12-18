@@ -67,7 +67,7 @@ class Activities extends CI_Controller {
 
 
 
-			if( to_timestamp($form->get_value('time_start')) > to_timestamp($form->get_value('time_end')) )
+			if( to_timestamp($form->get_value('start_time')) > to_timestamp($form->get_value('end_time')) )
 			{
 
 

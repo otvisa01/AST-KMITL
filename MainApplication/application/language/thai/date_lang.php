@@ -1,18 +1,18 @@
 <?php
 
-$lang['date_year'] = "Year";
+$lang['date_year'] = "ปี";
 $lang['date_years'] = "Years";
-$lang['date_month'] = "Month";
+$lang['date_month'] = "เดือน";
 $lang['date_months'] = "Months";
-$lang['date_week'] = "Week";
+$lang['date_week'] = "สัปดาห์";
 $lang['date_weeks'] = "Weeks";
-$lang['date_day'] = "Day";
+$lang['date_day'] = "วัน";
 $lang['date_days'] = "Days";
-$lang['date_hour'] = "Hour";
+$lang['date_hour'] = "ชั่วโมง";
 $lang['date_hours'] = "Hours";
-$lang['date_minute'] = "Minute";
+$lang['date_minute'] = "นาที";
 $lang['date_minutes'] = "Minutes";
-$lang['date_second'] = "Second";
+$lang['date_second'] = "วินาที";
 $lang['date_seconds'] = "Seconds";
 
 $lang['UM12']	= '(UTC -12:00) Baker/Howland Island';
