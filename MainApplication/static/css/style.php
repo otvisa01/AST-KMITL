@@ -20,6 +20,7 @@ if ( ! isset($_GET['app']) || ( isset($_GET['main']) && $_GET['main'] == TRUE ) 
 	echo file_get_contents("bootstrap-responsive.css");
 	echo file_get_contents("bootstrap.custom.css");
 	echo file_get_contents("custom.css");
+	echo file_get_contents("jquery.ui.css");
 }
 
 if ( isset($_GET['app']) )

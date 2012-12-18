@@ -26,4 +26,14 @@ $(document).ready(function() {
 			.html('Please wait...');
 	});
 
+	//////////////////
+	// Auto change to datetime picker
+	//////////////////	
+	$('.datetimepicker').datetimepicker({
+		dateFormat: 'yy-mm-dd',
+		timeFormat: 'hh:mm:ss',
+		showSecond: true,
+		minDate: "now-1"
+	});
+
 });

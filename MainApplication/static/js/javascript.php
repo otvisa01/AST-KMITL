@@ -17,6 +17,8 @@ if ( ! isset($_GET['app']) || ( isset($_GET['main']) && $_GET['main'] == TRUE ))
 {
 	// Static Import
 	echo file_get_contents('jquery.1.8.3.js');
+	echo file_get_contents('jquery-ui.1.9.2.js');
+	echo file_get_contents('jquery-ui.datetimepicker.js');
 	echo file_get_contents('jquery.bootstrap.js');
 	echo file_get_contents('underscore.js');
 	echo file_get_contents('jquery.custom.js');
