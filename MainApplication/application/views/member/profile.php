@@ -23,12 +23,7 @@
 						<a href="<?php echo base_url()?>activity/view/<?php echo $activity->id; ?>" class="btn btn-primary"><i class="icon-tasks"></i> View</a>
 					</div>
 				</p>
-				<br><small>
-					จัดเมื่อ : <?php echo $activity->start_time; ?> 
-				</small>
-				<small>
-					เวลาที่ใช้ในกิจกรรม : <?php echo $activity->get_time_to_do() ?>
-				</small>
+				<br><span class="label label-info">จัดเมื่อ : <?php echo $activity->start_time; ?></span> <span class="label label-info">เวลาที่ใช้ในกิจกรรม : <?php echo $activity->get_time_to_do() ?></span>
 			</blockquote>
 			<?php
 				}
