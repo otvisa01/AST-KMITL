@@ -11,6 +11,7 @@ class Activities extends CI_Controller {
 
 		parent::__construct();
 		$this->load->config('app/activity');
+		$this->load->config('app/enroll');
 		$this->load->library('form_creator');
 		$this->load->helper('time');
 		$this->load->helper('date');
@@ -40,7 +41,7 @@ class Activities extends CI_Controller {
 		$form = $this->form_creator;
 		$form->add_forms( $this->config->item('add_activity') );
 
-		if (! $form->is_validate())
+		if (! $form->is_validate() )
 		{
 			// Send data to view authenticate
 			$data = array();
@@ -112,10 +113,11 @@ class Activities extends CI_Controller {
 		
 	}
 
+
 	/**
 	* view page
 	*/
-	public function view($act_id)
+	public function view($activity_id)
 	{
 		// if not log in
 		if ( ! is_authen() )
@@ -123,7 +125,7 @@ class Activities extends CI_Controller {
 			redirect('/login', 'refresh');
 			return;
 		}
-		
+
 		// Get activity
 		$activities = New Activity();
 		$activities->get();
@@ -131,7 +133,7 @@ class Activities extends CI_Controller {
 		// Send data to view authenticate and id of activity for show detail
 		$data = array();
 		$data['activities'] = $activities;
-		$data['activity_id'] = $act_id;
+		$data['activity_id'] = $activity_id;
 		$body = $this->load->view('activity/view', $data, TRUE);
 		
 		// Send to base view
@@ -141,6 +143,64 @@ class Activities extends CI_Controller {
 		$this->load->view('base',$base);
 
 		
+	}
+
+
+	/**
+	* enroll page
+	*/
+	public function enroll($activity_id)
+	{
+		// if not log in
+		if( ! is_authen() )
+		{
+			redirect('/login','refresh');
+			return;
+		}
+
+		// Create Form
+		$form = $this->form_creator;
+		$form->add_forms($this->config->item('add_enroll'));
+
+		if( ! $form->is_validate() )
+		{
+			// Send data to view authenticate
+			$data = array();
+			$data['form'] = $form->get_forms();
+			$data['activity_id'] = $activity_id;
+			$body = $this->load->view('activity/enroll', $data, TRUE);
+			
+			// Send to base view
+			$base['title'] = '';
+			$base['body'] = $body;
+			$this->load->view('base',$base);
+		}
+		else
+		{
+
+		}
+	}
+
+	public function lists_enroll($activity_id){
+
+		// if not log in
+		if( ! is_authen() )
+		{
+			redirect('login','refresh');
+			return;
+		}
+
+		// Set data for send
+		$data = array();
+		$data['activity_id'] = $activity_id;
+
+		// Show list of member enroll
+		$body = $this->load->view('activity/lists_enroll',$data,TRUE);
+
+		// Send to base view
+		$base['title'] = '';
+		$base['body'] = $body;
+		$this->load->view('base',$base);
 	}
 	
 }	
