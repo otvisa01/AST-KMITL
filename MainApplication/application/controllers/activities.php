@@ -164,10 +164,16 @@ class Activities extends CI_Controller {
 
 		if( ! $form->is_validate() )
 		{
+
+			// get data from database
+			$Activity = New Activity();
+			$Activity->where('id',$activity_id )->get();
+
 			// Send data to view authenticate
 			$data = array();
 			$data['form'] = $form->get_forms();
 			$data['activity_id'] = $activity_id;
+			$data['activity'] = $Activity;
 			$body = $this->load->view('activity/enroll', $data, TRUE);
 			
 			// Send to base view
@@ -177,11 +183,21 @@ class Activities extends CI_Controller {
 		}
 		else
 		{
+			$users = New user();
+			$users->where('username',$form->get_value('enroll'));
+			$users->get();
+
+			$user_has_activity = New user_has_activity();
+			$user_has_activity->user_id = $users->id;
+			$user_has_activity->activity_id = $activity_id;
+			$user_has_activity->whoadd_id = 1;
+			$user_has_activity->save();
+			redirect('activity/enrol/'.$activity_id,'refresh');
 
 		}
 	}
 
-	public function lists_enroll($activity_id){
+	public function lists_enroll($activity_id, $order){
 
 		// if not log in
 		if( ! is_authen() )
@@ -190,9 +206,31 @@ class Activities extends CI_Controller {
 			return;
 		}
 
+		if( $order == 0 )
+		{
+
+			// get data form user_has_activity
+			$user_has_activity = New user_has_activity();
+			$user_has_activity->where('activity_id',$activity_id);
+			$user_has_activity->order_by('time_added','desc');
+			$user_has_activity->get();
+			
+			// get data form user
+			$users = New user();
+			$users->where_related('user_has_activity','user_id',$user_has_activity)->get();
+		}
+		else
+		{
+			$user_has_activity = New user_has_activity();
+			$users = New user();
+		}
+
+
 		// Set data for send
 		$data = array();
 		$data['activity_id'] = $activity_id;
+		$data['user_has_activity'] = $user_has_activity;
+		$data['users'] = $users;
 
 		// Show list of member enroll
 		$body = $this->load->view('activity/lists_enroll',$data,TRUE);

@@ -50,7 +50,7 @@ $route['logout'] = 'members/logout';
 $route['activities/list'] = 'activities/lists';
 $route['activity/(:num)'] = 'activities/view/$1';
 $route['activity/enrol/(:num)'] = 'activities/enroll/$1';
-$route['activity/lists_enroll/(:num)'] = 'activities/lists_enroll/$1';
+$route['activity/lists_enroll/(:num)/(:num)'] = 'activities/lists_enroll/$1/$2';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
