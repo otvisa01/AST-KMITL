@@ -49,9 +49,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'loleli.in.th';
-$db['default']['username'] = 'panupong_atskmitl';
+$db['default']['username'] = 'panupong_ats';
 $db['default']['password'] = 'mu,g;b8';
-$db['default']['database'] = 'panupong_atskmitl';
+$db['default']['database'] = 'panupong_ats';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
