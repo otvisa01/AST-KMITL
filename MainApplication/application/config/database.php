@@ -48,10 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'iamoat.com';
-$db['default']['username'] = 'iamoatco_ats';
-$db['default']['password'] = 'zxcvbn';
-$db['default']['database'] = 'iamoatco_ats';
+$db['default']['hostname'] = 'loleli.in.th';
+$db['default']['username'] = 'panupong_atskmitl';
+$db['default']['password'] = 'mu,g;b8';
+$db['default']['database'] = 'panupong_atskmitl';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
