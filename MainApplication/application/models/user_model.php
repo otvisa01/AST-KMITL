@@ -2,7 +2,7 @@
 <?php
 class User_model extends DataMapper {
 
-    var $table = 'users';
+    var $table = 'user';
     var $has_many = array('user_has_activity','user_has_permission_enroll');
     
     /**
@@ -23,5 +23,5 @@ class User_model extends DataMapper {
 
 }
 
-/* End of file User.php */
-/* Location: ./application/model/User.php */
+/* End of file user_model.php */
+/* Location: ./application/model/user_model.php */

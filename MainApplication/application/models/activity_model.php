@@ -3,7 +3,7 @@
 
 class Activity_model extends DataMapper {
 
-    var $table = "activities";
+    var $table = "activity";
     var $has_many=array('user_has_activity','permission_enroll');
       
  public function get_time_to_do()
@@ -17,5 +17,5 @@ class Activity_model extends DataMapper {
 
 }
 
-/* End of file Activity.php */
-/* Location: ./application/models/Activity.php */
+/* End of file activity_model.php */
+/* Location: ./application/models/activity_model.php */
