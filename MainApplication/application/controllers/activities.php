@@ -47,6 +47,7 @@ class Activities extends CI_Controller {
 			$error = TRUE;
 		}
 
+		// Is post
 		if( $form->is_posted() )
 		{
 			if( to_timestamp($form->get_value('start_time')) > to_timestamp($form->get_value('end_time')) )
@@ -56,6 +57,7 @@ class Activities extends CI_Controller {
 			}
 		}
 		
+		// If found error
 		if( $error )
 		{
 			// Send data to view authenticate

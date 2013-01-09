@@ -158,8 +158,6 @@ class Form_creator {
 		// Get form
 		$this->_msgs[$name] = $value;
 		
-		// Update render
-		$this->_update($name);
 	}
 	
 	// --------------------------------------------------------------------
@@ -378,7 +376,7 @@ class Form_creator {
 		{
 			$this->_msgs[$key] = form_error($key);	
 		}
-		elseif( ! isset($this->_msgs[$key]) || is_null($this->_msgs[$key]) )
+		elseif( ! isset($this->_msgs[$key]) )
 		{
 			$this->_msgs[$key] = '';
 		}
