@@ -4,7 +4,7 @@
 class Activity_model extends DataMapper {
 
     var $table = "activity";
-    var $has_many=array('user_has_activity','permission_enroll');
+    var $has_many=array('user_has_activity_model','permission_enroll_model');
       
  public function get_time_to_do()
     {
