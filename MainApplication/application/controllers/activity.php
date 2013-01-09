@@ -55,7 +55,7 @@ class Activities extends CI_Controller {
 		}
 		else
 		{
-			$activity = New Activity();
+			$activity = New Activity_model();
 			$activity->name 		= $form->get_value('name');
 			$activity->location 	= $form->get_value('location');
 			$activity->start_time 	= $form->get_value('start_time');
@@ -96,7 +96,7 @@ class Activities extends CI_Controller {
 		}
 		
 		// Get activity
-		$activities = New Activity();
+		$activities = New Activity_model();
 		$activities->get();
 
 		// Send data to view authenticate
@@ -127,7 +127,7 @@ class Activities extends CI_Controller {
 		}
 
 		// Get activity
-		$activities = New Activity();
+		$activities = New Activity_model();
 		$activities->get();
 
 		// Send data to view authenticate and id of activity for show detail
@@ -166,7 +166,7 @@ class Activities extends CI_Controller {
 		{
 
 			// get data from database
-			$Activity = New Activity();
+			$Activity = New Activity_model();
 			$Activity->where('id',$activity_id )->get();
 
 			// Send data to view authenticate
@@ -183,11 +183,11 @@ class Activities extends CI_Controller {
 		}
 		else
 		{
-			$users = New user();
+			$users = New User_model();
 			$users->where('username',$form->get_value('enroll'));
 			$users->get();
 
-			$user_has_activity = New user_has_activity();
+			$user_has_activity = New User_has_activity_model();
 			$user_has_activity->user_id = $users->id;
 			$user_has_activity->activity_id = $activity_id;
 			$user_has_activity->whoadd_id = 1;
@@ -197,7 +197,7 @@ class Activities extends CI_Controller {
 		}
 	}
 
-	public function lists_enroll($activity_id, $order){
+	public function list_enrolls($activity_id, $order){
 
 		// if not log in
 		if( ! is_authen() )
@@ -210,7 +210,7 @@ class Activities extends CI_Controller {
 		{
 
 			// get data form user_has_activity
-			$user_has_activity = New user_has_activity();
+			$user_has_activity = New User_has_activity_model();
 			$user_has_activity->where('activity_id',$activity_id);
 			$user_has_activity->order_by('time_added','desc');
 			$user_has_activity->get();
@@ -221,7 +221,7 @@ class Activities extends CI_Controller {
 		}
 		else
 		{
-			$user_has_activity = New user_has_activity();
+			$user_has_activity = New User_has_activity_model();
 			$users = New user();
 		}
 

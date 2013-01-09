@@ -1,7 +1,7 @@
 
 <?php
 
-class Activity extends DataMapper {
+class Activity_model extends DataMapper {
 
     var $table = "activities";
     var $has_many=array('user_has_activity','permission_enroll');
