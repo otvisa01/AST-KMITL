@@ -42,15 +42,16 @@ $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
 // Member
-$route['profile'] = 'member/profile';
-$route['login'] = 'member/login';
-$route['logout'] = 'member/logout';
+$route['profile'] = 'members/profile';
+$route['login'] = 'members/login';
+$route['logout'] = 'members/logout';
 
 // Activity
-$route['activities/list'] = 'activity/lists';
-$route['activity/(:num)'] = 'activity/view/$1';
-$route['activity/enrol/(:num)'] = 'activity/enroll/$1';
-$route['activity/list_enrolls/(:num)/(:num)'] = 'activity/list_enrolls/$1/$2';
+$route['activities/list'] = 'activities/lists';
+$route['activity/add'] = 'activities/add';
+$route['activity/(:num)'] = 'activities/view/$1';
+$route['activity/enrol/(:num)'] = 'activities/enroll/$1';
+$route['activity/list_enrolls/(:num)/(:num)'] = 'activities/list_enrolls/$1/$2';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
