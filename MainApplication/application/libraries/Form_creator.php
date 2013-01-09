@@ -210,7 +210,7 @@ class Form_creator {
 	/**
 	 * Get validation
 	 */
-	public function is_post()
+	public function is_posted()
 	{
 		return $this->_post();
 	}

@@ -47,12 +47,15 @@ class Activities extends CI_Controller {
 			$error = TRUE;
 		}
 
-		if( to_timestamp($form->get_value('start_time')) > to_timestamp($form->get_value('end_time')) )
+		if( $form->is_posted() )
 		{
-			$error = TRUE;
-			$form->set_message('end_time','เวลาเกิน');
+			if( to_timestamp($form->get_value('start_time')) > to_timestamp($form->get_value('end_time')) )
+			{
+				$error = TRUE;
+				$form->set_message('end_time','เวลาเกิน');
+			}
 		}
-
+		
 		if( $error )
 		{
 			// Send data to view authenticate
