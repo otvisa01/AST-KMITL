@@ -178,11 +178,6 @@ if ( ! function_exists('authorize_enroll'))
 
 			$time_start = $users->time_start;
 			$time_end = $users->time_end;
-			
-			to_timestamp($time_start);
-			to_timestamp($time_end);
-			to_timestamp(date('Y-m-d H:i:s'));
-
 
 			if ($users->count() != 1)
 			{
@@ -190,10 +185,12 @@ if ( ! function_exists('authorize_enroll'))
 			}
 			else
 			{
-				if( ){
+				if( timenow_compare( $time_start, $time_end) )
+				{
 					return TRUE;
 				}
-				else{
+				else
+				{
 					return FALSE;
 				}
 			}
