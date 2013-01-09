@@ -1,7 +1,7 @@
 
 <?php
 
-class User_has_activity extends DataMapper {
+class User_has_activity_model extends DataMapper {
 	
 	var $table = "user_has_activity";
 	var $has_one = array(

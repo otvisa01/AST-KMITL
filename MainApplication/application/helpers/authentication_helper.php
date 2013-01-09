@@ -33,7 +33,7 @@ if ( ! function_exists('is_authen'))
 		if ( isset($user_data['uid']) && isset($user_data['key']) )
 		{
 			// Check user validate
-			$users = new User_model();
+			$users = new User();
 			$users->where ('id', $user_data['uid']);
 			$users->where ('key', $user_data['key']);
 
@@ -73,7 +73,7 @@ if ( ! function_exists('set_authen'))
 		$user_data = $CI->session->all_userdata();
 
 		// Check user validate
-		$users = new User_model();
+		$users = new User();
 		$users->where ('username', $username);
 		$users->where ('password', $password);
 		$user = $users->get();
@@ -109,7 +109,7 @@ if ( ! function_exists('get_authen'))
 		if ( isset($user_data['uid']) && isset($user_data['key']) )
 		{
 			// Check user validate
-			$users = new User_model();
+			$users = new User();
 			$users->where ('id', $user_data['uid']);
 			$users->where ('key', $user_data['key']);
 			$user = $users->get();

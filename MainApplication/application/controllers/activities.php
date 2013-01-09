@@ -38,10 +38,27 @@ class Activities extends CI_Controller {
 			return;
 		}
 
+		$error = TRUE;
 		$form = $this->form_creator;
 		$form->add_forms( $this->config->item('add_activity') );
 
 		if (! $form->is_validate() )
+		{
+			$error = TRUE;
+		}
+
+		// Is post
+		if( $form->is_posted() )
+		{
+			if( to_timestamp($form->get_value('start_time')) > to_timestamp($form->get_value('end_time')) )
+			{
+				$error = TRUE;
+				$form->set_message('end_time','เวลาเกิน');
+			}
+		}
+		
+		// If found error
+		if( $error )
 		{
 			// Send data to view authenticate
 			$data = array();
@@ -55,7 +72,8 @@ class Activities extends CI_Controller {
 		}
 		else
 		{
-			$activity = New Activity_model();
+			// Save Database
+			$activity = New Activity();
 			$activity->name 		= $form->get_value('name');
 			$activity->location 	= $form->get_value('location');
 			$activity->start_time 	= $form->get_value('start_time');
@@ -65,18 +83,8 @@ class Activities extends CI_Controller {
 			$activity->updated 		= date('Y-m-d H:i:s');
 			$activity->created 		= date('Y-m-d H:i:s');
 
-
-
-
-			if( to_timestamp($form->get_value('start_time')) > to_timestamp($form->get_value('end_time')) )
-			{
-
-
-			}else{
-				$activity->save();
-			}
-			//redirect('/profile', 'refresh');
-			return;
+			$activity->save();
+			redirect('/activities/list', 'refresh');
 		}
 
 		
@@ -96,7 +104,7 @@ class Activities extends CI_Controller {
 		}
 		
 		// Get activity
-		$activities = New Activity_model();
+		$activities = New Activity();
 		$activities->get();
 
 		// Send data to view authenticate
@@ -127,7 +135,7 @@ class Activities extends CI_Controller {
 		}
 
 		// Get activity
-		$activities = New Activity_model();
+		$activities = New Activity();
 		$activities->get();
 
 		// Send data to view authenticate and id of activity for show detail
@@ -166,7 +174,7 @@ class Activities extends CI_Controller {
 		{
 
 			// get data from database
-			$Activity = New Activity_model();
+			$Activity = New Activity();
 			$Activity->where('id',$activity_id )->get();
 
 			// Send data to view authenticate
@@ -183,11 +191,10 @@ class Activities extends CI_Controller {
 		}
 		else
 		{
-			$users = New User_model();
 			$users->where('username',$form->get_value('enroll'));
 			$users->get();
 
-			$user_has_activity = New User_has_activity_model();
+			$user_has_activity = New User_has_activity();
 			$user_has_activity->user_id = $users->id;
 			$user_has_activity->activity_id = $activity_id;
 			$user_has_activity->whoadd_id = 1;
@@ -210,19 +217,18 @@ class Activities extends CI_Controller {
 		{
 
 			// get data form user_has_activity
-			$user_has_activity = New User_has_activity_model();
+			$user_has_activity = New User_has_activity();
 			$user_has_activity->where('activity_id',$activity_id);
 			$user_has_activity->order_by('time_added','desc');
 			$user_has_activity->get();
 			
 			// get data form user
-			$users = New user();
+			$users = New User();
 			$users->where_related('user_has_activity','user_id',$user_has_activity)->get();
 		}
 		else
 		{
-			$user_has_activity = New User_has_activity_model();
-			$users = New user();
+			$user_has_activity = New User_has_activity();
 		}
 
 

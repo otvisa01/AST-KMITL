@@ -1,7 +1,7 @@
 <?php 
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Member extends CI_Controller {
+class Members extends CI_Controller {
 
 	/**
 	 * Constructor
@@ -80,7 +80,7 @@ class Member extends CI_Controller {
 		else
 		{
 			// Check user validate
-			$users = new User_model();
+			$users = new User();
 			$users->where ('username', $form->get_value('username'));
 			$users->where ('password', $form->get_value('password'));
 			$user = $users->get();
