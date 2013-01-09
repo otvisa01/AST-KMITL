@@ -164,20 +164,52 @@ if ( ! function_exists('del_authen'))
  * @param	string
  * @return	
  */
-if ( ! function_exists('authorize'))
+if ( ! function_exists('authorize_enroll'))
 {	
-	function authorize()
+	function authorize_enroll()
 	{
-		$CI =& get_instance();
-		$data = array(
-               'uid'	=> FALSE,
-               'key'	=> FALSE
-           );
-		$CI->session->set_userdata($data);
+		$user = get_authen();
+
+		if ( isset($user['uid']) )
+		{
+			$users = new permission_enroll_model();
+			$users->where ('user_id', $user['uid']);
+			$users->get();
+
+			$time_start = $users->time_start;
+			$time_end = $users->time_end;
+			
+			to_timestamp($time_start);
+			to_timestamp($time_end);
+			to_timestamp(date('Y-m-d H:i:s'));
+
+
+			if ($users->count() != 1)
+			{
+				return FALSE;
+			}
+			else
+			{
+				if( ){
+					return TRUE;
+				}
+				else{
+					return FALSE;
+				}
+			}
+		}
+		else
+		{
+			return FALSE;
+		}
 	}
+		
+		
 }
 
 
 
 /* End of file authentication_helper.php */
 /* Location: ./application/helpers/authentication_helper.php */
+
+
