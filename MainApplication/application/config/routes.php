@@ -48,7 +48,6 @@ $route['logout'] = 'members/logout';
 
 // Activity
 $route['activities/list'] = 'activities/lists';
-$route['activity/add'] = 'activities/add';
 $route['activity/(:num)'] = 'activities/view/$1';
 $route['activity/enrol/(:num)'] = 'activities/enroll/$1';
 $route['activity/list_enrolls/(:num)/(:num)'] = 'activities/list_enrolls/$1/$2';

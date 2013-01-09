@@ -149,6 +149,18 @@ class Form_creator {
 		// Update render
 		$this->_update($name);
 	}
+
+	/**
+	 * Set message
+	 */
+	public function set_message($name = '' ,$value = '')
+	{
+		// Get form
+		$this->_msgs[$name] = $value;
+		
+		// Update render
+		$this->_update($name);
+	}
 	
 	// --------------------------------------------------------------------
 	// Getter section
@@ -361,7 +373,16 @@ class Form_creator {
 	private function _msg($key)
 	{	
 		// Set value
-		$this->_msgs[$key] = form_error($key);
+		$msg = form_error($key);
+		if ( form_error($key) )
+		{
+			$this->_msgs[$key] = form_error($key);	
+		}
+		elseif( ! isset($this->_msgs[$key]) || is_null($this->_msgs[$key]) )
+		{
+			$this->_msgs[$key] = '';
+		}
+		
 	}
 	
 	// --------------------------------------------------------------------

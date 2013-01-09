@@ -38,10 +38,22 @@ class Activities extends CI_Controller {
 			return;
 		}
 
+		$error = TRUE;
 		$form = $this->form_creator;
 		$form->add_forms( $this->config->item('add_activity') );
 
 		if (! $form->is_validate() )
+		{
+			$error = TRUE;
+		}
+
+		if( to_timestamp($form->get_value('start_time')) > to_timestamp($form->get_value('end_time')) )
+		{
+			$error = TRUE;
+			$form->set_message('end_time','เวลาเกิน');
+		}
+
+		if( $error )
 		{
 			// Send data to view authenticate
 			$data = array();
@@ -55,6 +67,7 @@ class Activities extends CI_Controller {
 		}
 		else
 		{
+			// Save Database
 			$activity = New Activity();
 			$activity->name 		= $form->get_value('name');
 			$activity->location 	= $form->get_value('location');
@@ -65,16 +78,8 @@ class Activities extends CI_Controller {
 			$activity->updated 		= date('Y-m-d H:i:s');
 			$activity->created 		= date('Y-m-d H:i:s');
 
-			if( to_timestamp($form->get_value('start_time')) > to_timestamp($form->get_value('end_time')) )
-			{
-
-
-			}else{
-				$activity->save();
-			}
-			
-			redirect('/add', 'refresh');
-			return;
+			$activity->save();
+			redirect('/activities/list', 'refresh');
 		}
 
 		
