@@ -17,7 +17,7 @@
 // --------------------------------------------------------------------
 
 /**
- * is_authen
+ * to_timestamp
  *
  * @access	public
  * @param	string
@@ -37,3 +37,76 @@ if ( ! function_exists('to_timestamp'))
 // --------------------------------------------------------------------
 
 
+/**
+ * timenow compare
+ *
+ * @access	public
+ * @param	string
+ * @return	str
+ */
+if ( ! function_exists('time_compare'))
+{	
+	function timenow_compare($time1 ,$time2)
+	{
+		$ts_time1 = to_timestamp($time1);
+		$ts_time2 = to_timestamp($time2);
+		$ts_now = time();
+
+		if( $ts_time1 <= $ts_now && $ts_time2 >= $ts_now )
+		{
+			return TRUE;
+		}
+		else
+		{
+			return FALSE;
+		}
+		
+	}
+}
+
+// --------------------------------------------------------------------
+
+/**
+ * split_time
+ *
+ * @access	public
+ * @param	datetime
+ * @return	array
+ */
+if ( ! function_exists('split_time'))
+{	
+	function split_time($time)
+	{
+		list($date,$time) = explode(' ',$time);
+
+		return array('date'=>$date, 'time'=>$time, 'full'=>$date.' '.$time);
+	}
+}
+
+
+// --------------------------------------------------------------------
+
+/**
+ * timestamp_to_date
+ *
+ * @access	public
+ * @param	timestamp
+ * @return	str
+ */
+if ( ! function_exists('timestamp_to_date'))
+{	
+	function timestamp_to_date($time)
+	{
+		if ($time == 'now')
+		{
+			return date('Y-m-d H:i:s', time());
+		}
+		else
+		{
+			return date('Y-m-d H:i:s', $time);
+		}
+		
+	}
+}
+
+// --------------------------------------------------------------------
