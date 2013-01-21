@@ -20,24 +20,23 @@
 			<hr>
 			<h4>นักศึกษาที่ลงทะเบียนเสร็จสมบูรณ์</h4>
 			<div class="enroll_list" id="list_student">
-				<script type="text/javascript">
-
-					// call set of first data order by update 
-					function call_first_data(){
-						$.get('<?php echo base_url()?>activity/lists_enroll/<?php echo $activity_id?>/0',
-							function(data){
-								$('#list_student').html(data);
-						});
-					}
-					call_first_data();
-					/*setInterval(function call_data(){
-						$.get('<?php echo base_url()?>activity/lists_enroll/<?php echo $activity_id?>/0',
-							function(data){
-								$('#list_student').html(data);
-							}
-						);
-					},1000);*/
-				</script>
+			<?php
+				foreach ($users as $user)
+				{
+			?>
+				<blockquote class="activity-item">
+					<p>
+						<div class="activity-item-title pull-left">
+							<?php echo $user->first_name .' '.$user->last_name; ?>
+						</div>
+					</p>
+					<br><small>
+					
+					</small>
+				</blockquote>
+			<?php
+				}
+			?>
 			</div>
 		</section>
 	</div>
